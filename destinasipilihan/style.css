@@ -1,0 +1,515 @@
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    z-index: 2000;
+}
+
+.burger div {
+    width: 70%;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    /* header */
+    header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .burger {
+        display: flex;
+
+    }
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 70vh;
+        top: 60px;
+        background-color: #50434346;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        width: 60%;
+        max-width: 200px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+    }
+    .nav-links li {
+        display: block;
+        margin: 10px 0;
+        position: relative; 
+    }
+    .nav-links.active {
+        transform: translateX(0%);
+    }
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    header .background {
+        width: 100%;
+        height: 250px;
+    }
+    .textlogo {
+        font-size: 20px;
+        width: 250px;
+    }
+    .logo img {
+        width: 80px;
+    }
+    nav ul li {
+        display: none;
+    }
+
+    nav ul li :hover{
+        color: #ffffff;
+    }
+    nav .sticky {
+        background-color: #ffffff;
+        color: #323434;
+        padding: 10px 0px 10px 0px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+    }
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: -150px; 
+        color: rgb(14, 14, 14);
+        background-color: #fffef9;
+        border-radius: 5px;
+        min-width: 150px;
+        z-index: 1000;
+    }
+    
+    ul li:hover .dropdown {
+        display: block;
+    }
+    
+    .dropdown ul {
+        display: block;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+    }
+    
+    .dropdown li a {
+        color: rgb(36, 36, 36);
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+    }
+    
+    .dropdown li:hover a {
+        color: rgb(243, 78, 78);
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+    }
+    /* main */
+    main {
+        position: relative;
+        width: 100%;
+    }
+    .about p {
+        width: 80%;
+        font-size: 15px;
+    }
+    .juduldestinasi {
+        margin-left: 0;
+        font-size: 20px;
+        font-family: "CynthoNextBold", sans-serif;
+        text-align: center;
+    }
+    .articledestinasi {
+        width: 100%;
+    }
+    .contentwisata {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 20px;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .contentcard {
+        flex: 1 1 calc(50% - 20px);
+    }
+    .containerArticelAside {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .contentKeunikan {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .contentKeunikan {
+        width: 90%;
+    }
+
+    .keunikan img {
+        width: 180px;
+    }
+
+    .keunikan {
+        position: relative;
+        width: calc(50% - 10px);
+        height: 230px;
+    }
+    .img {
+        width: calc(100% / 2 - 11px);
+    }
+    .contentkuliner h2{
+        font-size: 28px;
+
+    }
+    .galeryContainer{
+        height: 800px;
+    }
+    .galeryWrap {
+        gap: 10px;
+    }
+    .galeryWrap img {
+        width: calc(33.333% - 20px); 
+        height: auto; 
+    }
+    aside {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: auto;
+        margin-top: 10px;
+        padding: 10px; 
+
+    }
+    
+    .containerAside {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 370px;
+        }
+    
+        .hotel,
+        .restaurant,
+        .rent {
+            flex-direction: row;
+            margin: 5px;
+            padding: 10px;
+        }
+    
+        .hotel h1,
+        .restaurant h1,
+        .rent h1 {
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        .widget {
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+    footer{
+        height: auto;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-alamat, .footer-contact, .footer-social .img{
+        margin-top: 20px;
+        width: 70%;
+        text-align: center; 
+    }
+
+    .footer-social h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footer-social .social-media {
+        flex-direction: row; 
+        justify-content: center;
+    }
+
+    .footer-social .social-media a {
+        margin: 0 10px; 
+    }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 769px) {
+    /* header */
+    html,body{
+        margin: 0;
+        background-color: #EEEEEE;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        width: 100%;
+        padding: 0 20px; 
+    }
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center; 
+        width: 100%;
+    }
+    .burger {
+        display: none; 
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: transparent;
+        position: static; 
+        height: auto;
+    }
+    .nav-links li {
+        display: inline-block;
+        margin: 0 15px; 
+        position: relative; 
+    }
+    .nav-links.active {
+        transform: none;
+    }
+    .burger.toggle .line1,
+    .burger.toggle .line2,
+    .burger.toggle .line3 {
+        transform: none;
+        opacity: 1;
+    }
+    header .background {
+        width: 100%;
+        height: 200px; 
+    }
+    .textlogo {
+        font-size: 25px; 
+        width: auto;
+    }
+    .logo img {
+        width: 100px; 
+    }
+    nav ul li {
+        display: inline-block;
+    }
+    nav ul li:hover {
+        color: #ffffff; 
+    }
+    nav .sticky {
+        background-color: #ffffff;
+        color: #323434;
+        padding: 15px 0;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+    }
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        color: rgb(14, 14, 14);
+        background-color: #fffef9;
+        border-radius: 5px;
+        min-width: 150px;
+        z-index: 1000;
+    }
+    ul li:hover .dropdown {
+        display: block;
+    }
+    .dropdown ul {
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+    }
+    .dropdown li a {
+        color: rgb(36, 36, 36);
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+    }
+    .dropdown li:hover a {
+        color: rgb(243, 78, 78);
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+    }
+    /* main */
+    main {
+        position: relative;
+        width: 100%;
+        max-width: 1280px; 
+        margin: 0 auto; 
+        padding: 0 20px; 
+    }
+    .about p {
+        width: 100%;
+        max-width: 1000px; 
+        margin: 0 auto; 
+        font-size: 15px;
+    }
+    .juduldestinasi {
+        margin-left: 0;
+        font-size: 20px;
+        font-family: "CynthoNextBold", sans-serif;
+        text-align: center;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .articledestinasi {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .contentwisata {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .contentcard {
+        flex: 1 1 calc(50% - 20px);
+    }
+    .containerArticelAside {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .contentKeunikan {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .keunikan img {
+        width: 180px;
+    }
+    .keunikan {
+        position: relative;
+        width: calc(50% - 10px);
+        height: 230px;
+    }
+    .img {
+        width: calc(100% / 2 - 11px);
+    }
+    .contentkuliner h2 {
+        font-size: 28px;
+    }
+    /* Gallery responsive styles */
+    .galeryContainer {
+        height: 1280px;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .galeryWrap {
+        gap: 10px;
+    }
+    .galeryWrap img {
+        width: calc(33.333% - 20px);
+        height: auto;
+    }
+    aside {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: auto;
+        margin-top: 10px;
+        padding: 10px;
+    }
+    .containerAside {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .hotel,
+    .restaurant,
+    .rent {
+        flex-direction: row;
+        margin: 5px;
+        padding: 10px;
+    }
+    .hotel h1,
+    .restaurant h1,
+    .rent h1 {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+    .widget {
+        max-width: 800px;
+        margin-top: 20px;
+    }
+    footer {
+        height: auto;
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-alamat,
+    .footer-contact,
+    .footer-social .img {
+        margin-top: 20px;
+        width: 70%;
+        text-align: center;
+    }
+    .footer-social h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .footer-social .social-media {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .footer-social .social-media a {
+        margin: 0 10px;
+    }
+}

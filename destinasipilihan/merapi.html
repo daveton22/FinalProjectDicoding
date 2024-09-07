@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wisata</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/script.js" />
+    <style>
+      /* header dan navigasi */
+
+      @font-face {
+        font-family: "CynthoNextBold";
+        src: url(/font/cyntho-next-cufonfonts/CynthoNextBold.otf);
+      }
+
+      @font-face {
+        font-family: "Nyohthin";
+        src: url(/font/Nyoh/NoyhSlim-Regular.ttf);
+      }
+
+      @font-face {
+        font-family: "corpid";
+        src: url(/corpid-light-cufonfonts/Corpid\ Heavy.ttf);
+      }
+
+      html,
+      body {
+        margin: 0;
+        background-color: #eeeeee;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        max-height: 800px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        align-items: center;
+        z-index: 1000000;
+        width: 100%;
+        transition: 0.6s;
+        background-color: #0000002f;
+        border-bottom: 1px solid rgba(24, 24, 24, 0.26);
+        height: 60px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+      }
+
+      ul li {
+        position: relative;
+      }
+
+      ul li a {
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: black;
+      }
+
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50px;
+        color: rgb(14, 14, 14);
+        background-color: #fffef9;
+        border: 1px solid rgba(24, 24, 24, 0.26);
+        border-radius: 5px;
+        min-width: 200px;
+      }
+
+      ul li:hover .dropdown {
+        display: block;
+      }
+
+      .dropdown ul {
+        display: block;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+      }
+
+      .dropdown li a {
+        color: rgb(36, 36, 36);
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown li:hover a {
+        color: rgb(243, 78, 78);
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+      }
+
+      .textnone img {
+        margin: 0;
+      }
+
+      .sticky {
+        background-color: #fffef9;
+        padding: 10px 0px 10px 0px;
+        color: #343434;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+      }
+
+      nav.sticky ul li a {
+        color: #373a40;
+        /* Ubah sesuai kebutuhan */
+      }
+
+      .scrolled {
+        color: #373a40;
+        /* Ubah sesuai kebutuhan */
+      }
+
+      .logo img {
+        margin-right: 350px;
+        width: 120px;
+      }
+
+      .background {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        position: relative;
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+      }
+
+      .mySlides {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+
+      .mySlides img {
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(0.8);
+        -webkit-filter: contrast(0.8);
+        object-position: center;
+      }
+
+      .slideshow {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .textlogo {
+        position: absolute;
+        top: 140px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #ffffff;
+        font-size: 39px;
+        font-family: "Oswald", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+      }
+
+      .textspan {
+        color: #a1dd70;
+      }
+
+      .textspan1 {
+        color: #ee4e4e;
+      }
+
+      .caption-container {
+        position: absolute;
+        bottom: 10px;
+        color: white;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 16px;
+      }
+
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      li {
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        cursor: pointer;
+        position: relative;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        margin: 0;
+      }
+
+      .textnone {
+        position: relative;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        margin: 0px 40px;
+        transition: color 0.5s;
+        -webkit-transition: color 0.5s;
+        -moz-transition: color 0.5s;
+        -ms-transition: color 0.5s;
+        -o-transition: color 0.5s;
+      }
+
+      .textnone:after {
+        content: "";
+        position: absolute;
+        background-color: #ee4e4e;
+        height: 3px;
+        width: 0;
+        left: 0;
+        bottom: -10px;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      .textnone:hover:after {
+        width: 100%;
+      }
+
+      .scrolled {
+        color: #373a40;
+      }
+
+      .homeclass a {
+        background-color: #a1dd70;
+        color: rgb(255, 255, 255);
+        padding: 10px 15px 10px 15px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        transition: transform 0.3s ease-in-out;
+        text-decoration: none;
+      }
+
+      .homeclass:hover {
+        transition: transform 0.1s ease-in-out;
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -webkit-transition: transform 0.1s ease-in-out;
+        -moz-transition: transform 0.1s ease-in-out;
+        -ms-transition: transform 0.1s ease-in-out;
+        -o-transition: transform 0.1s ease-in-out;
+      }
+
+      .button {
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #04aa6d;
+        outline: none;
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .button:hover {
+        color: #243f25;
+        background-color: #eee;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        width: 900px;
+        padding: 20px;
+      }
+
+      main h1 {
+        font-family: "corpid", sans-serif;
+        font-size: 60px;
+        font-weight: 1200;
+        color: #101113;
+      }
+
+      main p {
+        font-family: sans-serif;
+        font-size: 20px;
+        color: #121314;
+      }
+
+      main h2 {
+        font-family: "corpid", sans-serif;
+        font-weight: 1200;
+        color: #101113;
+      }
+
+      footer {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        background-color: #799351;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+      }
+
+      .footer-container {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .footer-container h1 {
+        margin: 0;
+        font-family: "CynthoNextBold", sans-serif;
+        color: #f6fff3;
+      }
+
+      .footer-container p {
+        margin: 15px 0px;
+        font-family: "Nyohthin", sans-serif;
+        color: #f6fff3;
+        font-size: 20px;
+      }
+
+      .footer-alamat {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+      }
+
+      .footer-social .social-media {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+        width: 200px;
+      }
+
+      .footer-social .social-media a {
+        margin: 10px;
+        font-family: "Nyohthin", sans-serif;
+        color: #f6fff3;
+        font-size: 20px;
+        text-decoration: none;
+      }
+
+      .footer-line {
+        width: 80%;
+        height: 1px;
+        background-color: #ffffffc0;
+      }
+
+      footer .legal {
+        text-align: center;
+        margin-top: 40px;
+        font-family: sans-serif;
+        color: #e7e7e7;
+      }
+      .burger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        z-index: 2000;
+      }
+
+      .burger div {
+        width: 70%;
+        height: 3px;
+        background-color: #333;
+        transition: all 0.3s ease;
+      }
+      @media screen and (max-width: 768px) {
+        /* header */
+        header {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+        nav {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+        .burger {
+          display: flex;
+        }
+        .nav-links {
+          position: absolute;
+          right: 0;
+          height: 50vh;
+          top: 60px;
+          background-color: #50434346;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 20px;
+          width: 60%;
+          max-width: 200px;
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in;
+        }
+        .nav-links li {
+          display: block;
+          margin: 10px 0;
+          position: relative;
+        }
+        .nav-links.active {
+          transform: translateX(0%);
+        }
+        .burger.toggle .line1 {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .burger.toggle .line2 {
+          opacity: 0;
+        }
+        .burger.toggle .line3 {
+          transform: rotate(45deg) translate(-5px, -6px);
+        }
+        header .background {
+          width: 100%;
+          height: 250px;
+        }
+        .textlogo {
+          font-size: 20px;
+          width: 250px;
+        }
+        .logo img {
+          width: 80px;
+        }
+        nav ul li {
+          display: none;
+        }
+
+        nav ul li :hover {
+          color: #ffffff;
+        }
+        nav .sticky {
+          background-color: #ffffff;
+          color: #000000;
+          padding: 10px 0px 10px 0px;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+        }
+        .dropdown {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: -150px;
+          color: rgb(14, 14, 14);
+          background-color: #fffef9;
+          border-radius: 5px;
+          min-width: 150px;
+          z-index: 1000;
+        }
+
+        ul li:hover .dropdown {
+          display: block;
+        }
+
+        .dropdown ul {
+          display: block;
+          list-style: none;
+          padding: 10px;
+          margin: 0;
+        }
+
+        .dropdown li a {
+          color: rgb(36, 36, 36);
+          text-decoration: none;
+          display: block;
+          padding: 5px;
+        }
+
+        .dropdown li:hover a {
+          color: rgb(243, 78, 78);
+          background-color: rgba(0, 0, 0, 0.1);
+          border-radius: 2px;
+        }
+        /* main */
+        main {
+          display: flex;
+          justify-content: center;
+          width: 90%;
+          margin-bottom: 50px;
+        }
+        article {
+          width: 400px;
+        }
+        article img {
+          width: 300px;
+        }
+        iframe {
+          width: 95%;
+          margin-top: 20px;
+        }
+        main h1 {
+          font-family: "corpid", sans-serif;
+          font-size: 40px;
+          font-weight: 1200;
+          color: #101113;
+        }
+
+        main p {
+          font-family: sans-serif;
+          font-size: 17px;
+          color: #121314;
+        }
+
+        main h2 {
+          font-family: "corpid", sans-serif;
+          font-weight: 1200;
+          color: #101113;
+        }
+
+        .contact {
+          display: flex;
+          flex-direction: row;
+          margin-top: 50px;
+        }
+
+        .contact p {
+          font-size: small;
+        }
+
+        .alamat {
+          text-align: center;
+          margin: 0;
+        }
+
+        .phone {
+          text-align: center;
+          margin: 0;
+        }
+
+        .email {
+          text-align: center;
+          margin: 0;
+        }
+        footer {
+          height: auto;
+        }
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-alamat,
+        .footer-contact,
+        .footer-social .img {
+          margin-top: 20px;
+          width: 70%;
+          text-align: center;
+        }
+
+        .footer-social h1 {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .footer-social .social-media {
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .footer-social .social-media a {
+          margin: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav>
+        <div class="logo">
+          <img src="/icon/Jogja_Istimewa_Wordmark.png" alt="Logo" />
+        </div>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <ul class="nav-links">
+          <li class="homeclass"><a href="/home.html">Home</a></li>
+          <li>
+            <a href="#" class="textnone" id="navlist">Kategori</a>
+            <div class="dropdown">
+              <ul>
+                <li><a href="/Kategori/goa.html">Goa</a></li>
+                <li><a href="/Kategori/pantai.html">Pantai</a></li>
+                <li><a href="/Kategori/hutan.html">Hutan</a></li>
+                <li><a href="/Kategori/sejarah.html">Tempat Bersejarah</a></li>
+                <li><a href="/kategori/taman.html">Taman</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="/Navigasi/event.html" class="textnone" id="navlist"
+              >Event</a
+            >
+          </li>
+          <li>
+            <a href="/Navigasi/contact.html" class="textnone" id="navlist"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a href="/Navigasi/about.html" class="textnone" id="navlist"
+              >About</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="background">
+        <div class="slideshow">
+          <div class="mySlides fade">
+            <img
+              src="/destinasipilihan/frenky-harry-_9ExPfUFWHM-unsplash.jpg"
+              alt="Image 1"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <article>
+        <h1>
+          Wisata Gunung Merapi Yogyakarta: Menikmati Keindahan Alam dan Sejarah
+        </h1>
+        <img
+          src="/destinasipilihan/rendy-novantino-88HGs943zsM-unsplash.jpg"
+          alt=""
+          width="799"
+        />
+        <p>
+          Gunung Merapi adalah salah satu gunung berapi yang paling aktif di
+          Indonesia dan terletak di Yogyakarta. Berlokasi di Pulau Jawa, Gunung
+          Merapi menawarkan berbagai macam wisata yang menarik, mulai dari
+          keindahan alam hingga sejarah dan budaya. Berikut ini adalah beberapa
+          tempat wisata Gunung Merapi yang wajib dikunjungi:
+        </p>
+
+        <h2>1. Lava Tour Merapi</h2>
+        <p>
+          Lava Tour Merapi adalah salah satu wisata Gunung Merapi yang
+          menawarkan petualangan menyusuri area sekitar Gunung Merapi. Wisatawan
+          dapat menikmati pemandangan alam yang indah dan berbagai fasilitas
+          seperti Jeep dan pemandu.
+        </p>
+        <h2>2. Museum Gunung Merapi</h2>
+        <p>
+          Museum Gunung Merapi wajib dikunjungi bagi kamu yang tertarik
+          mengetahui seluk beluk dan pengetahuan geologi Gunung Merapi. Di sini
+          terdapat miniatur gunung berapi yang menampilkan kenampakan gunung
+          berapi yang sedang mengeluarkan asap. Wisatawan juga dapat menyaksikan
+          keindahan Gunung Merapi dari museum ini.
+        </p>
+        <h2>3. Museum Mini Sisa Hartaku</h2>
+        <p>
+          Museum Mini Sisa Hartaku berlokasi di Jl. Petung Merapi, Petung,
+          Kepuharjo, Kec. Cangkringan, Kabupaten Sleman. Di sini wisatawan dapat
+          menyaksikan barang-barang sisa letusan Gunung Merapi pada 2010 silam,
+          seperti televisi atau komputer yang sudah meleleh, kerangka motor
+          bebek yang sudah berkarat, dan bangkai sapi yang sudah menjadi tulang
+          belulang.
+        </p>
+        <h2>4. Museum Ullen Sentalu</h2>
+        <p>
+          Museum Ullen Sentalu adalah salah satu wisata Gunung Merapi yang
+          sedang hits. Museum ini terletak di Pakem, Kabupaten Sleman,
+          Yogyakarta. Museum Ullen Sentalu menampilkan budaya dan kehidupan para
+          bangsawan Dinasti Mataram beserta koleksi bermacam-macam batik.
+        </p>
+        <h2>5. Bunker Kaliadem</h2>
+        <p>
+          Bunker Kaliadem adalah salah satu wilayah lereng selatan Gunung Merapi
+          yang menjadi destinasi wisata Merapi Jogja populer. Di sini terdapat
+          sebuah bunker yang dulunya dijadikan tempat perlindungan dari luncuran
+          awan panas Gunung Merapi. Kini Bunker Kaliadem dijadikan salah satu
+          destinasi wisata Merapi yang banyak dikunjungi wisatawan.
+        </p>
+        <h2>Kesimpulan</h2>
+        <p>
+          Gunung Merapi adalah salah satu gunung berapi yang paling aktif di
+          Indonesia dan terletak di Yogyakarta. Berbagai macam wisata yang
+          menarik dapat ditemui di sekitar Gunung Merapi, mulai dari keindahan
+          alam hingga sejarah dan budaya. Wisatawan dapat menikmati berbagai
+          macam kegiatan seperti Lava Tour Merapi, Museum Gunung Merapi, Museum
+          Mini Sisa Hartaku, Museum Ullen Sentalu, Bunker Kaliadem, Goa Jepang
+          Kaliurang, Stonehenge Cangkringan, Bukit Kali Kuning, Bukit Klangon,
+          dan Lost World Park.
+        </p>
+        <h2>Alamat dan Peta Lokasi Gunung Merapi</h2>
+        <div class="map">
+          <p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15821.255909838228!2d110.43542433367462!3d-7.540696007284628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a641ec0ff2fa5%3A0xe92612624cad8800!2sGunung%20Merapi!5e0!3m2!1sid!2sid!4v1718627960162!5m2!1sid!2sid"
+              width="900"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </p>
+        </div>
+      </article>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <img
+          src="/icon/Jogja_Istimewa_Wordmark.png"
+          alt=""
+          width="200"
+          height="100"
+        />
+        <div class="footer-alamat">
+          <h1>Alamat</h1>
+          <p>
+            Jl. Melati III No.256, Dero, Condongcatur, Kec. Depok, Kabupaten
+            Sleman, Daerah Istimewa Yogyakarta 55281
+          </p>
+        </div>
+        <div class="footer-contact">
+          <h1>Contact</h1>
+          <p>Phone: +62 822 4838 6580</p>
+          <p>Email: davefarfar21@gmail.com</p>
+        </div>
+
+        <div class="footer-social">
+          <h1>Follow Us</h1>
+          <div class="social-media">
+            <a href="https://www.facebook.com/syntic.loaded"
+              ><img src="/icon/facebook.png" alt="" width="30" />Dave Farfar</a
+            >
+            <a href="https://www.instagram.com/dave_farfar/"
+              ><img
+                src="/icon/instagram.png"
+                alt=""
+                width="30"
+              />@dave_farfar</a
+            >
+            <a href="#"
+              ><img src="/icon/twitter.png" alt="" width="30" />none</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer-line"></div>
+      <div class="legal">
+        <p>Design & Development by Dave</p>
+        <p>&copy; 2024 Perusahaan ini. Semua hak dilindungi.</p>
+      </div>
+    </footer>
+    <script>
+      var slideIndex = 0;
+      var slideInterval;
+
+      function plusSlides(n) {
+        clearInterval(slideInterval);
+        showSlides((slideIndex += n));
+        startAutoSlide();
+      }
+
+      function currentSlide(n) {
+        clearInterval(slideInterval);
+        showSlides((slideIndex = n - 1));
+        startAutoSlide();
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        if (n >= slides.length) {
+          slideIndex = 0;
+        }
+        if (n < 0) {
+          slideIndex = slides.length - 1;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+          slides[i].classList.remove("fade");
+        }
+        slides[slideIndex].style.display = "block";
+        slides[slideIndex].classList.add("fade");
+      }
+
+      function startAutoSlide() {
+        slideInterval = setInterval(function () {
+          showSlides((slideIndex += 1));
+        }, 6000); // Change image every 3 seconds
+      }
+
+      showSlides(slideIndex);
+      startAutoSlide();
+
+      window.addEventListener("scroll", function () {
+        var nav = document.querySelector("nav");
+        var links = nav.querySelectorAll("ul li a");
+
+        if (window.scrollY > 50) {
+          nav.classList.add("sticky");
+          links.forEach(function (link) {
+            link.classList.add("scrolled");
+          });
+        } else {
+          nav.classList.remove("sticky");
+          links.forEach(function (link) {
+            link.classList.remove("scrolled");
+          });
+        }
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
+
+        burger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+          burger.classList.toggle("toggle");
+        });
+      });
+    </script>
+  </body>
+</html>
